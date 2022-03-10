@@ -7,6 +7,7 @@ module.exports = {
     "eslint:recommended",
     // TypeScriptでチェックされる項目をLintから除外する設定
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     // prettierのextendsは他のextendsより後に記述する
     "prettier",
     // 現在は不要になっているのでコメントアウト
