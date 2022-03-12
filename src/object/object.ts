@@ -21,4 +21,22 @@ export default function objectSample() {
     name: 'United States of America',
   };
   console.log('Object object sample 2:', country);
+
+  // オプショナルとreadonly
+  const kumahack: {
+    age: number;
+    lastName: string;
+    readonly firstName: string;
+    gender?: string;
+  } = {
+    age: 26,
+    lastName: 'Yamada',
+    firstName: 'Taro',
+  };
+
+  kumahack.gender = 'male';
+  kumahack.lastName = 'Kamado';
+  // kumahack.firstName = 'Tanjiro';
+
+  console.log('Object object sample 3:', kumahack);
 }
