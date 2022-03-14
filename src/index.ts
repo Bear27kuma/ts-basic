@@ -42,5 +42,7 @@
 
 // 06.配列の型定義
 import arraySample from './array/array';
+import tupleSample from './array/tuple';
 
 arraySample();
+tupleSample();
