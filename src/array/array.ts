@@ -16,4 +16,17 @@ export default function arraySample() {
   ids.push(456);
   // ids.push(true);
   console.log('Array array sample 3:', ids);
+
+  // 配列の型推論
+  const generateSomeArray = () => {
+    const _someArray = []; // any[]
+    _someArray.push(123); // number[]
+    _someArray.push('ABC'); // (string | number)[]
+    return _someArray;
+  };
+
+  const someArray = generateSomeArray();
+  someArray.push(456);
+  // someArray.push(true);
+  console.log('Array array sample 4:', someArray);
 }
