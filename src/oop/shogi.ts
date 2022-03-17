@@ -8,6 +8,22 @@ type Player = 'first' | 'second';
 // 駒の位置を表すクラス
 class Position {
   constructor(private suji: Suji, private dan: Dan) {}
+
+  // パラメーターに渡された位置と現在の位置を比較するメソッド
+  distanceFrom(position: Position, player: Player) {
+    if (player === 'first') {
+      return {
+        suji: Math.abs(position.suji - this.suji),
+        dan: Math.abs(Number(position.dan) - Number(this.dan)),
+      };
+    } else {
+      return {
+        suji: Math.abs(position.suji - this.suji),
+        // 段（縦の位置）は正負反転
+        dan: -Math.abs(Number(position.dan) - Number(this.dan)),
+      };
+    }
+  }
 }
 
 // 駒を表すクラス
@@ -19,14 +35,21 @@ abstract class Piece {
     this.position = new Position(suji, dan);
   }
 
-  // メソッドの定義
-  // 駒の移動用メソッド
+  // パラメーターに渡された位置へ駒を移動するメソッド
+  // publicなので、サブクラスでオーバーライド（上書き）できる
   moveTo(position: Position) {
     this.position = position;
   }
 
   // 移動できるかどうかを判定するメソッド
+  // abstractをつけて宣言しておき、サブクラスで具体的に実装する
   abstract canMoveTo(position: Position, player: Player): boolean;
 }
 
-// new Piece('first', 1, '1');
+// 王将クラス
+class Osho extends Piece {
+  canMoveTo(position: Position, player: Player): boolean {
+    const distance = this.position.distanceFrom(position, player);
+    return distance.suji < 2 && distance.dan < 2;
+  }
+}
