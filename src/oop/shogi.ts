@@ -53,3 +53,15 @@ class Osho extends Piece {
     return distance.suji < 2 && distance.dan < 2;
   }
 }
+
+// 駒を生成&初期化するクラス
+class Game {
+  private pieces = Game.makePieces();
+  private static makePieces() {
+    return [
+      // 王将を初期値に置く
+      new Osho('first', 5, '1'),
+      new Osho('second', 5, '9'),
+    ];
+  }
+}
