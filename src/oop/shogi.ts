@@ -54,6 +54,30 @@ class Osho extends Piece {
   }
 }
 
+// 歩クラス
+class Fu extends Piece {
+  canMoveTo(position: Position, player: Player): boolean {
+    const distance = this.position.distanceFrom(position, player);
+    // 移動先との距離が前方1マスであれば
+    return distance.suji === 0 && distance.dan === -1;
+  }
+}
+
+// 成金クラス
+class Narikin extends Fu {
+  canMoveTo(position: Position, player: Player): boolean {
+    const distance = this.position.distanceFrom(position, player);
+    return (
+      // 移動先が1マス以内
+      distance.suji < 2 &&
+      distance.dan < 2 &&
+      // 左後方と右後方には進めない
+      distance.suji !== 0 &&
+      distance.dan === -1
+    );
+  }
+}
+
 // 駒を生成&初期化するクラス
 class Game {
   private pieces = Game.makePieces();
