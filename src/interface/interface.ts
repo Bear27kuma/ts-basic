@@ -31,3 +31,40 @@ const maboDon: MaboDon = {
   spicyLevel: 10,
   gram: 350,
 };
+
+// インターフェースの継承
+interface Book {
+  page: number;
+  title: string;
+}
+
+interface Book {
+  page: number;
+  title: string;
+}
+
+interface Magazine extends Book {
+  cycle: 'daily' | 'weekly' | 'monthly' | 'yearly';
+}
+
+const jump: Magazine = {
+  page: 300,
+  title: '週刊少年ジャンプ',
+  cycle: 'weekly',
+};
+
+// 型エイリアスから継承することもできる
+type BookType = {
+  page: number;
+  title: string;
+};
+
+interface HandBook extends BookType {
+  theme: string;
+}
+
+const cotrip: HandBook = {
+  page: 120,
+  title: 'ことりっぷ',
+  theme: '旅行',
+};
