@@ -56,7 +56,9 @@ import genericsBasicSample from './generics/basic';
 
 // 10.非同期処理
 // import callbackSample from './asynchronous/callback';
-import promiseSample from './asynchronous/promise';
+// import promiseSample from './asynchronous/promise';
+import asyncAwaitSample from './asynchronous/asyncAwait';
 
 // callbackSample();
-promiseSample();
+// promiseSample();
+void asyncAwaitSample();
