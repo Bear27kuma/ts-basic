@@ -55,6 +55,8 @@ import genericsBasicSample from './generics/basic';
 // genericsAdvancedSample();
 
 // 10.非同期処理
-import callbackSample from './asynchronous/callback';
+// import callbackSample from './asynchronous/callback';
+import promiseSample from './asynchronous/promise';
 
-callbackSample();
+// callbackSample();
+promiseSample();
